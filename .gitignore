@@ -1,0 +1,50 @@
+# 환경변수 (절대 커밋 금지)
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+
+# 데이터 (로컬 생성 파일)
+data/
+models/
+
+# Docker 볼륨 (로컬 생성)
+es_data/
+minio_data/
+redis_data/
+
+# Node / Frontend (Stage 6)
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/settings.json
+.vscode/launch.json
+.idea/
+*.swp
+*.swo
+
+# 로그
+*.log
+logs/
+
+# 테스트 커버리지
+.coverage
+htmlcov/

@@ -1,0 +1,82 @@
+{
+  "settings": {
+    "number_of_shards":   1,
+    "number_of_replicas": 0
+  },
+  "mappings": {
+    "_meta": {
+      "schema_version": 1
+    },
+    "properties": {
+      "doc_id":     { "type": "keyword" },
+      "project_id": { "type": "keyword" },
+      "intent":     { "type": "keyword" },
+      "status":     { "type": "keyword" },
+
+      "vector": {
+        "type":       "dense_vector",
+        "dims":       1024,
+        "index":      true,
+        "similarity": "cosine"
+      },
+
+      "sparse_vector": { "type": "sparse_vector" },
+
+      "slots": {
+        "type": "object",
+        "properties": {
+          "project_period":       { "type": "keyword" },
+          "key_outcome":          { "type": "text" },
+          "organization":         { "type": "keyword" },
+          "trouble_shooting":     { "type": "text" },
+          "lessons_learned":      { "type": "text" },
+          "role":                 { "type": "keyword" },
+
+          "tech_stack":           { "type": "keyword" },
+          "architecture_pattern": { "type": "keyword" },
+          "performance_metric":   { "type": "text" },
+
+          "design_tool":          { "type": "keyword" },
+          "user_problem":         { "type": "text" },
+          "visual_style":         { "type": "keyword" },
+
+          "research_topic":       { "type": "text" },
+          "method":               { "type": "keyword" },
+          "finding":              { "type": "text" },
+
+          "title":                { "type": "text" },
+          "issuer":               { "type": "keyword" },
+          "issue_date":           { "type": "keyword" },
+          "score":                { "type": "keyword" },
+          "grade":                { "type": "keyword" },
+
+          "activity_org":         { "type": "keyword" },
+          "activity_period":      { "type": "keyword" },
+          "activity_role":        { "type": "keyword" },
+          "activity_outcome":     { "type": "text" },
+
+          "company":              { "type": "keyword" },
+          "career_role":          { "type": "keyword" },
+          "career_period":        { "type": "keyword" },
+          "responsibilities":     { "type": "text" }
+        }
+      },
+
+      "slot_statuses": {
+        "type": "object",
+        "dynamic": true
+      },
+
+      "slot_completeness_score": { "type": "float" },
+
+      "media_links": { "type": "keyword" },
+
+      "related_docs": { "type": "keyword" },
+
+      "raw_text":     { "type": "text", "analyzer": "standard" },
+
+      "created_at":   { "type": "date" },
+      "updated_at":   { "type": "date" }
+    }
+  }
+}
